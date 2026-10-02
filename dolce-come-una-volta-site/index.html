@@ -21,7 +21,7 @@
       Nonna 3.0
     </a>
     <div class="header-cta">
-      <a class="btn" href="#prezzo">Acquista il ricettario</a>
+      <a class="btn" href="#" data-checkout>Acquista il ricettario</a>
     </div>
   </div>
 </header>
@@ -44,9 +44,7 @@
         </div>
         <div class="hero-cta-row">
           <a class="btn" href="#prezzo">Acquista il ricettario</a>
-          <span class="price-tag">12,99 €</span>
         </div>
-        <p class="micro">IVA inclusa · Download immediato · Da leggere su smartphone e tablet.</p>
       </div>
       <div class="hero-visual">
         <img class="logo-big" src="images/logo.jpeg.png" alt="Nonna 3.0 — Dolce come una volta">
@@ -121,7 +119,6 @@
         <p>Puoi sfogliarlo per trovare ispirazione, consultare una ricetta mentre cucini o partire dalla dispensa di base per organizzare gli ingredienti.</p>
         <p>È un ricettario da tenere a portata di mano, anche sul telefono.</p>
         <p class="center"><a class="btn" href="#prezzo">Acquista il ricettario</a></p>
-        <p class="micro center">12,99 € IVA inclusa · Download subito dopo il pagamento.</p>
       </div>
     </div>
   </section>
@@ -182,7 +179,6 @@
         <div class="item"><span class="num">☰</span><h4>Indice cliccabile</h4><p>Per raggiungere la ricetta che cerchi senza scorrere tutte le pagine.</p></div>
       </div>
       <p class="center" style="margin-top:36px;"><a class="btn" href="#prezzo">Acquista il ricettario</a></p>
-      <p class="micro center">Tutto incluso nell'ebook, a 12,99 € IVA inclusa.</p>
     </div>
   </section>
 
@@ -229,17 +225,17 @@
         <div class="step">
           <div class="step-num">1</div>
           <h3>Acquista il ricettario</h3>
-          <p>Il prezzo è di 12,99 €, IVA inclusa.</p>
+          <p>Scegli il ricettario e completa il pagamento.</p>
         </div>
         <div class="step">
           <div class="step-num">2</div>
-          <h3>Scarica il file</h3>
-          <p>Il download del ricettario in formato EPUB è disponibile subito dopo il pagamento.</p>
+          <h3>Ricevi il ricettario</h3>
+          <p>Il ricettario è subito tuo, pronto da aprire.</p>
         </div>
         <div class="step">
           <div class="step-num">3</div>
           <h3>Aprilo e scegli una ricetta</h3>
-          <p>Usa un'app o un lettore compatibile con EPUB e raggiungi le ricette attraverso l'indice cliccabile.</p>
+          <p>Sfoglialo dal telefono o dal tablet e raggiungi le ricette dall'indice cliccabile.</p>
         </div>
       </div>
     </div>
@@ -308,7 +304,7 @@
           <li>Pagina avvertenze e allergeni</li>
           <li>Indice cliccabile</li>
         </ul>
-        <a class="btn" href="#" id="buyBtn" style="width:100%;">Acquista il ricettario</a>
+        <a class="btn" href="#" data-checkout style="width:100%;">Acquista il ricettario</a>
         <p class="micro">Formato EPUB · Download disponibile subito dopo il pagamento.</p>
       </div>
       <p class="center" style="margin-top:34px;font-family:'Caveat',cursive;font-size:1.3rem;color:var(--olive);">Il prossimo ricordo di casa può cominciare da una ricetta.</p>
@@ -356,7 +352,7 @@
         </details>
         <details class="faq-item">
           <summary>Che cosa comprende il prezzo?</summary>
-          <div class="faq-answer">Il prezzo di 12,99 €, IVA inclusa, comprende l'ebook con tutti i contenuti descritti in questa pagina. È un acquisto singolo.</div>
+          <div class="faq-answer">Il prezzo comprende l'ebook con tutti i contenuti descritti in questa pagina. È un acquisto singolo.</div>
         </details>
       </div>
     </div>
@@ -372,7 +368,6 @@
       <p class="lede center" style="max-width:640px;">32 ricette ti aspettano, con fotografie e valori per porzione — pronte da scegliere stasera stessa.</p>
       <div style="margin-top:28px;">
         <a class="btn" href="#prezzo">Voglio il ricettario</a>
-        <p class="micro">12,99 € IVA inclusa · Formato EPUB · Download subito dopo il pagamento.</p>
       </div>
       <p class="signoff">Con affetto, Nonna 3.0.</p>
     </div>
@@ -402,9 +397,13 @@
 </div>
 
 <script>
-document.getElementById('buyBtn').addEventListener('click', function(e){
-  e.preventDefault();
-  alert('Collega qui il link di pagamento (Stripe, Gumroad o altro) per abilitare l\'acquisto.');
+var CHECKOUT_URL = '';
+document.querySelectorAll('[data-checkout]').forEach(function(a){
+  a.addEventListener('click', function(e){
+    e.preventDefault();
+    if (CHECKOUT_URL) { window.location.href = CHECKOUT_URL; }
+    else { alert('Collega qui il link di pagamento (Stripe, Gumroad o altro) per abilitare l\'acquisto.'); }
+  });
 });
 
 (function(){
