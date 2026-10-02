@@ -102,7 +102,7 @@
           <span>Guida alle sostituzioni</span>
         </a>
       </div>
-      <p class="micro center" style="margin-top:14px;">Clicca su una pagina per ingrandirla.</p>
+      <p class="micro center" style="margin-top:14px;">Tocca una pagina per ingrandirla.</p>
     </div>
   </section>
 
@@ -396,11 +396,43 @@
   </div>
 </footer>
 
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Pagina dell'ebook ingrandita" hidden>
+  <button class="lightbox-close" type="button" aria-label="Chiudi">&times;</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
 <script>
 document.getElementById('buyBtn').addEventListener('click', function(e){
   e.preventDefault();
   alert('Collega qui il link di pagamento (Stripe, Gumroad o altro) per abilitare l\'acquisto.');
 });
+
+(function(){
+  var box = document.getElementById('lightbox');
+  var img = document.getElementById('lightboxImg');
+  var closeBtn = box.querySelector('.lightbox-close');
+  var lastFocus = null;
+  function openBox(a){
+    lastFocus = a;
+    img.src = a.getAttribute('href');
+    img.alt = a.querySelector('img').alt;
+    box.hidden = false;
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+  function closeBox(){
+    box.hidden = true;
+    img.src = '';
+    document.body.style.overflow = '';
+    if (lastFocus) lastFocus.focus();
+  }
+  document.querySelectorAll('.ebook-page').forEach(function(a){
+    a.addEventListener('click', function(e){ e.preventDefault(); openBox(a); });
+  });
+  closeBtn.addEventListener('click', closeBox);
+  box.addEventListener('click', function(e){ if (e.target === box) closeBox(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !box.hidden) closeBox(); });
+})();
 </script>
 
 </body>

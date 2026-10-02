@@ -436,3 +436,10 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.15);margin:24px 0;}
   .brand img{width:36px;height:36px;}
   .promise-quote{font-size:1.3rem;}
 }
+
+/* Lightbox */
+.lightbox{position:fixed;inset:0;z-index:100;background:rgba(40,28,20,.9);display:flex;align-items:center;justify-content:center;padding:24px;}
+.lightbox[hidden]{display:none;}
+.lightbox img{max-width:100%;max-height:92vh;width:auto;height:auto;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.5);background:var(--cream);}
+.lightbox-close{position:fixed;top:16px;right:16px;width:52px;height:52px;border-radius:50%;border:2px solid #fff;background:var(--terracotta);color:#fff;font-size:2rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.4);padding:0 0 4px;}
+.lightbox-close:hover{background:var(--terracotta-dark);}
