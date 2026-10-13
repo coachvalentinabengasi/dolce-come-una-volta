@@ -21,7 +21,7 @@
       Nonna 3.0
     </a>
     <div class="header-cta">
-      <a class="btn" href="#" data-checkout>Acquista il ricettario</a>
+      <a class="btn" href="https://store.youcanprint.it/dolce-come-una-volta/b/b8c4849a-f238-5ac6-9ae9-14561aa0618a" data-checkout>Acquista il ricettario</a>
     </div>
   </div>
 </header>
@@ -304,7 +304,7 @@
           <li>Pagina avvertenze e allergeni</li>
           <li>Indice cliccabile</li>
         </ul>
-        <a class="btn" href="#" data-checkout style="width:100%;">Acquista il ricettario</a>
+        <a class="btn" href="https://store.youcanprint.it/dolce-come-una-volta/b/b8c4849a-f238-5ac6-9ae9-14561aa0618a" data-checkout style="width:100%;">Acquista il ricettario</a>
         <p class="micro">Formato EPUB · Download disponibile subito dopo il pagamento.</p>
       </div>
       <p class="center" style="margin-top:34px;font-family:'Caveat',cursive;font-size:1.3rem;color:var(--olive);">Il prossimo ricordo di casa può cominciare da una ricetta.</p>
@@ -397,15 +397,6 @@
 </div>
 
 <script>
-var CHECKOUT_URL = '';
-document.querySelectorAll('[data-checkout]').forEach(function(a){
-  a.addEventListener('click', function(e){
-    e.preventDefault();
-    if (CHECKOUT_URL) { window.location.href = CHECKOUT_URL; }
-    else { alert('Collega qui il link di pagamento (Stripe, Gumroad o altro) per abilitare l\'acquisto.'); }
-  });
-});
-
 (function(){
   var box = document.getElementById('lightbox');
   var img = document.getElementById('lightboxImg');
