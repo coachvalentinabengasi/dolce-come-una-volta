@@ -290,6 +290,7 @@
       <h2 class="center">Porta «Dolce come una volta»<br>nella tua cucina</h2>
       <div class="price-card">
         <img class="badge" src="images/badge.jpeg.png" alt="Nonna Ida 3.0">
+        <h3 class="book-title">Dolce come una volta</h3>
         <p style="font-weight:800;margin:0;">L'ebook di Nonna Ida 3.0</p>
         <div class="big-price">12,99 €</div>
         <p class="micro" style="margin-top:0;">IVA inclusa · Un solo acquisto</p>
@@ -387,9 +388,21 @@
       <a href="#">Termini di vendita</a>
       <a href="#">Privacy</a>
       <a href="#">Cookie</a>
+      <a href="#" id="nlOpen" hidden>Newsletter</a>
     </div>
   </div>
 </footer>
+
+<div class="nl-modal" id="nlModal" role="dialog" aria-modal="true" aria-labelledby="nlTitle" hidden>
+  <div class="nl-box">
+    <button class="lightbox-close" type="button" aria-label="Chiudi">&times;</button>
+    <p class="nl-eyebrow">La newsletter di Nonna Ida</p>
+    <h2 id="nlTitle">Una lettera dalla nonna, ogni due settimane</h2>
+    <p class="nl-text">Ricette di casa, qualche consiglio e un ricordo da condividere. Lascia la tua email e non perdi la prossima.</p>
+    <iframe id="nlFrame" title="Iscrizione alla newsletter" src="about:blank"></iframe>
+    <button class="nl-later" type="button">No, grazie</button>
+  </div>
+</div>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Pagina dell'ebook ingrandita" hidden>
   <button class="lightbox-close" type="button" aria-label="Chiudi">&times;</button>
@@ -422,6 +435,54 @@
   closeBtn.addEventListener('click', closeBox);
   box.addEventListener('click', function(e){ if (e.target === box) closeBox(); });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !box.hidden) closeBox(); });
+})();
+
+(function(){
+  var NEWSLETTER_URL = '';
+  var modal = document.getElementById('nlModal');
+  var openLink = document.getElementById('nlOpen');
+  if (!NEWSLETTER_URL || !modal) return;
+  var frame = document.getElementById('nlFrame');
+  var KEY = 'nonnaIdaNewsletter';
+  var QUIET_DAYS = 30;
+  var lastFocus = null;
+  function recentlyDismissed(){
+    try { var t = parseInt(localStorage.getItem(KEY) || '0', 10); return t && Date.now() - t < QUIET_DAYS * 864e5; }
+    catch (e) { return false; }
+  }
+  function remember(){ try { localStorage.setItem(KEY, String(Date.now())); } catch (e) {} }
+  function openModal(){
+    if (!frame.getAttribute('data-loaded')) { frame.src = NEWSLETTER_URL; frame.setAttribute('data-loaded', '1'); }
+    lastFocus = document.activeElement;
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    modal.querySelector('.lightbox-close').focus();
+  }
+  function closeModal(){
+    modal.hidden = true;
+    document.body.style.overflow = '';
+    remember();
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  function lightboxOpen(){ var l = document.getElementById('lightbox'); return l && !l.hidden; }
+  var shown = false;
+  function autoOpen(){
+    if (shown || recentlyDismissed()) return;
+    if (lightboxOpen()) { setTimeout(autoOpen, 10000); return; }
+    shown = true; openModal();
+  }
+  modal.querySelector('.lightbox-close').addEventListener('click', closeModal);
+  modal.querySelector('.nl-later').addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e){ if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !modal.hidden) closeModal(); });
+  openLink.hidden = false;
+  openLink.addEventListener('click', function(e){ e.preventDefault(); openModal(); });
+  if (!recentlyDismissed()) {
+    setTimeout(autoOpen, 30000);
+    var armed = false;
+    setTimeout(function(){ armed = true; }, 10000);
+    document.addEventListener('mouseout', function(e){ if (armed && !e.relatedTarget && e.clientY <= 0) autoOpen(); });
+  }
 })();
 </script>
 

@@ -444,3 +444,17 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.15);margin:24px 0;}
 .lightbox img{max-width:100%;max-height:92vh;width:auto;height:auto;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.5);background:var(--cream);}
 .lightbox-close{position:fixed;top:16px;right:16px;width:52px;height:52px;border-radius:50%;border:2px solid #fff;background:var(--terracotta);color:#fff;font-size:2rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.4);padding:0 0 4px;}
 .lightbox-close:hover{background:var(--terracotta-dark);}
+
+.price-card .book-title{font-size:2.5rem;line-height:1.1;margin:4px 0 12px;color:var(--terracotta-dark);}
+
+/* Newsletter popup */
+.nl-modal{position:fixed;inset:0;z-index:110;background:rgba(40,28,20,.78);display:flex;align-items:center;justify-content:center;padding:16px;}
+.nl-modal[hidden]{display:none;}
+.nl-box{position:relative;background:var(--cream-card);border:2px solid var(--terracotta);border-radius:20px;padding:34px 26px 22px;max-width:480px;width:100%;max-height:94vh;overflow:auto;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,.45);}
+.nl-box .lightbox-close{position:absolute;top:10px;right:10px;width:42px;height:42px;font-size:1.7rem;box-shadow:none;}
+.nl-eyebrow{font-family:'Caveat',cursive;font-size:1.5rem;color:var(--olive);margin:0;}
+.nl-box h2{font-size:1.6rem;margin:2px 0 10px;}
+.nl-text{font-size:1rem;color:var(--brown-soft);margin:0 0 6px;}
+.nl-box iframe{width:100%;height:400px;border:0;display:block;}
+.nl-later{background:none;border:0;color:var(--brown-soft);text-decoration:underline;cursor:pointer;font:inherit;font-size:.9rem;padding:8px;}
+@media (max-width:520px){.price-card .book-title{font-size:2.05rem;}}
