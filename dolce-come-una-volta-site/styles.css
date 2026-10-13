@@ -465,3 +465,5 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.15);margin:24px 0;}
 .legal a{color:var(--terracotta-dark);text-decoration:underline;}
 .legal-date{color:var(--brown-soft);font-size:.9rem;margin-bottom:1.4em;}
 .legal-back{margin-top:2.4em;}
+.legal ul{padding-left:1.2em;margin:.7em 0;}
+.legal li{margin:.5em 0;font-size:1rem;}
