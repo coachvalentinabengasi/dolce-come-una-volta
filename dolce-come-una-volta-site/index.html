@@ -394,13 +394,10 @@
   </div>
 </footer>
 
-<div class="nl-modal" id="nlModal" role="dialog" aria-modal="true" aria-labelledby="nlTitle" hidden>
+<div class="nl-modal" id="nlModal" role="dialog" aria-modal="true" aria-label="Iscrizione alla newsletter" hidden>
   <div class="nl-box">
     <button class="lightbox-close" type="button" aria-label="Chiudi">&times;</button>
-    <p class="nl-eyebrow">La newsletter di Nonna Ida</p>
-    <h2 id="nlTitle">Una lettera dalla nonna, ogni due settimane</h2>
-    <p class="nl-text">Ricette di casa, qualche consiglio e un ricordo da condividere. Lascia la tua email e non perdi la prossima.</p>
-    <iframe id="nlFrame" title="Iscrizione alla newsletter" src="about:blank"></iframe>
+    <iframe id="nlFrame" title="Iscrizione alla newsletter" src="about:blank" scrolling="auto"></iframe>
     <button class="nl-later" type="button">No, grazie</button>
   </div>
 </div>
@@ -439,7 +436,7 @@
 })();
 
 (function(){
-  var NEWSLETTER_URL = '';
+  var NEWSLETTER_URL = 'https://cfb70d03.sibforms.com/v2/serve/MUIFAPBK-7B6wCXbupusSAj2qeV0XG3HfPbER0kKzgiT8MwR7jtl82qgjpnKGzV7Lur1kDiCphLeEhQKUi5ut1c8tQuicbUGU3fMK3LyYMLroQfCodYEXubw3_kW82N700j4YWpEAZ6AtyNET7hdKPHAApIssLzD2YPMyJs1P9PkZlOLTgJUhOkRYspfyLds_COiFTLp_CdJQlSMFQ==';
   var modal = document.getElementById('nlModal');
   var openLink = document.getElementById('nlOpen');
   if (!NEWSLETTER_URL || !modal) return;
