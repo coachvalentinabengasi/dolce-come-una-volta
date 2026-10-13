@@ -455,3 +455,13 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.15);margin:24px 0;}
 .nl-box iframe{flex:1;min-height:0;width:100%;border:0;display:block;}
 .nl-later{background:none;border:0;color:var(--brown-soft);text-decoration:underline;cursor:pointer;font:inherit;font-size:.9rem;padding:8px 8px 12px;}
 @media (max-width:520px){.price-card .book-title{font-size:2.05rem;}}
+
+/* Legal pages */
+.legal{padding:56px 0 72px;}
+.legal .container{max-width:800px;}
+.legal h1{font-size:2rem;margin-bottom:.2em;}
+.legal h2{font-size:1.35rem;margin:1.8em 0 .4em;}
+.legal p{margin:.7em 0;font-size:1rem;}
+.legal a{color:var(--terracotta-dark);text-decoration:underline;}
+.legal-date{color:var(--brown-soft);font-size:.9rem;margin-bottom:1.4em;}
+.legal-back{margin-top:2.4em;}
