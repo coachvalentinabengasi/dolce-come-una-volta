@@ -440,13 +440,12 @@
   if (!NEWSLETTER_URL || !modal) return;
   var frame = document.getElementById('nlFrame');
   var KEY = 'nonnaIdaNewsletter';
-  var QUIET_DAYS = 30;
   var lastFocus = null;
   function recentlyDismissed(){
-    try { var t = parseInt(localStorage.getItem(KEY) || '0', 10); return t && Date.now() - t < QUIET_DAYS * 864e5; }
+    try { return sessionStorage.getItem(KEY) === '1'; }
     catch (e) { return false; }
   }
-  function remember(){ try { localStorage.setItem(KEY, String(Date.now())); } catch (e) {} }
+  function remember(){ try { sessionStorage.setItem(KEY, '1'); } catch (e) {} }
   function openModal(){
     if (!frame.getAttribute('data-loaded')) { frame.src = NEWSLETTER_URL; frame.setAttribute('data-loaded', '1'); }
     lastFocus = document.activeElement;
