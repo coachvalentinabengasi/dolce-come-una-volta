@@ -474,9 +474,9 @@
   openLink.hidden = false;
   openLink.addEventListener('click', function(e){ e.preventDefault(); openModal(); });
   if (!recentlyDismissed()) {
-    setTimeout(autoOpen, 30000);
+    setTimeout(autoOpen, 7000);
     var armed = false;
-    setTimeout(function(){ armed = true; }, 10000);
+    setTimeout(function(){ armed = true; }, 3000);
     document.addEventListener('mouseout', function(e){ if (armed && !e.relatedTarget && e.clientY <= 0) autoOpen(); });
   }
 })();
