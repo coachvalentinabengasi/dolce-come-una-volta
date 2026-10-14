@@ -124,7 +124,7 @@ header.site-header{
   font-weight:700;color:var(--terracotta-dark);
   font-size:1.5rem;
 }
-.brand img{width:54px;height:54px;border-radius:50%;object-fit:cover;border:2px solid var(--terracotta);}
+.brand img{width:54px;height:54px;object-fit:contain;}
 .header-cta .btn{padding:13px 26px;font-size:1.02rem;}
 
 /* Section spacing */
@@ -149,8 +149,7 @@ section.tight{padding:56px 0;}
 .hero-visual img.logo-big{
   width:92%;
   max-width:500px;
-  border-radius:50%;
-  box-shadow:var(--shadow);
+  filter:drop-shadow(0 18px 26px rgba(74,54,39,.3));
 }
 .polaroid{
   position:absolute;
@@ -353,7 +352,7 @@ section.tight{padding:56px 0;}
   box-shadow:var(--shadow);
   position:relative;
 }
-.price-card img.badge{width:96px;height:96px;border-radius:50%;margin:0 auto 14px;}
+.price-card img.badge{width:130px;height:130px;margin:0 auto 14px;}
 .price-card .big-price{font-family:'Playfair Display',serif;font-size:3.2rem;color:var(--terracotta-dark);margin:6px 0;}
 .price-list{text-align:left;margin:26px 0;padding:0;list-style:none;}
 .price-list li{
@@ -397,7 +396,7 @@ section.tight{padding:56px 0;}
   background:linear-gradient(180deg, var(--cream), #F1E3C8);
   text-align:center;
 }
-.closing img.badge{width:130px;height:130px;border-radius:50%;margin:0 auto 20px;box-shadow:var(--shadow);}
+.closing img.badge{width:150px;height:150px;margin:0 auto 20px;filter:drop-shadow(0 10px 16px rgba(74,54,39,.3));}
 .closing .signoff{font-family:'Caveat',cursive;font-size:1.75rem;color:var(--olive);margin-top:18px;}
 
 /* Footer */
